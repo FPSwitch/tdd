@@ -23,6 +23,3 @@ def create_counter(name):
 
 def setUp(self):
   self.client = app.test_client()
-
-def update_counter(name):
-  # HTTP PUT /counters/<name>
