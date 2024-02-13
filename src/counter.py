@@ -20,9 +20,7 @@ def create_counter(name):
         return {"Message":f"Counter {name} already exists"}, status.HTTP_409_CONFLICT
     COUNTERS[name] = 0
     return {name: COUNTERS[name]}, status.HTTP_201_CREATED
-
 def setUp(self):
     self.client = app.test_client()
 def delete_counter_successful(self):
     """Delete a counter"""
-  
