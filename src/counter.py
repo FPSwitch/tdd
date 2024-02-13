@@ -29,3 +29,4 @@ def setUp(self):
 
 def delete_counter_successful(self):
     """Delete a counter"""
+    client.delete("counter name")
