@@ -23,10 +23,6 @@ def create_counter(name):
     return {name: COUNTERS[name]}, status.HTTP_201_CREATED
 
 
-def setUp(self):
-    self.client = app.test_client()
-
-
 @app.route('/counters/<name>', methods=['DELETE'])
 def delete_counter_successful(name):
     """Delete a counter"""
