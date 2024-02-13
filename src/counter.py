@@ -26,9 +26,9 @@ def create_counter(name):
 @app.route('/counters/<name>', methods=['DELETE'])
 def delete_counter_successful(name):
     """Delete a counter"""
+    global COUNTERS
     del COUNTERS[name]
     app.logger.info(f"Request to delete counter: {name}")
-    global COUNTERS
     if name in COUNTERS:
         return {"Message": f"Counter {name} does not exist"}, status.HTTP_409_CONFLICT
     return "", status.HTTP_404_NOT_FOUND
