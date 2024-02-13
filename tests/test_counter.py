@@ -35,7 +35,7 @@ class CounterTest(TestCase):
         result = self.client.post('/counters/bar')
         self.assertEqual(result.status_code, status.HTTP_409_CONFLICT)
 
-     def test_delete_counter_successful(self):
+    def test_delete_counter_successful(self):
         counter_name_to_delete = "example_counter"
         create_counter_result = create_counter(counter_name_to_delete)
         self.assertTrue(create_counter_result, "Failed to create a counter for testing.")  # if create counter fails
