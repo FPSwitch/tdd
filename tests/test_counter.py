@@ -41,4 +41,4 @@ class CounterTest(TestCase):
         delete_result = self.client.post(counter_name_to_delete)
         self.assertEqual(delete_result.status_code, status.HTTP_404_NOT_FOUND)
         delete_result = self.client.post(counter_name_to_delete)      #delete counter
-        self.assertEqual(delete_result.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(delete_result.status_code, status.HTTP_409_CONFLICT)
