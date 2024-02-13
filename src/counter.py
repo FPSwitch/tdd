@@ -28,7 +28,7 @@ def setUp(self):
 
 
 @app.route('/counters/<name>', methods=['DELETE'])
-def delete_counter_successful(self):
+def delete_counter_successful(name):
     """Delete a counter"""
     app.logger.info(f"Request to delete counter: {name}")
     global COUNTERS
