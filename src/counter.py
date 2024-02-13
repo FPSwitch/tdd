@@ -27,6 +27,12 @@ def setUp(self):
     self.client = app.test_client()
 
 
+@app.route('/counters/<name>', methods=['DELETE'])
 def delete_counter_successful(self):
     """Delete a counter"""
-    client.delete("counter name")
+    app.logger.info(f"Request to delete counter: {name}")
+    global COUNTERS
+    if name in COUNTERS:
+        return {"Message": f"Counter {name} already exists"}, status.HTTP_409_CONFLICT
+    COUNTERS[name] = 0
+    return {name: COUNTERS[name]}, status.HTTP_201_CREATED
