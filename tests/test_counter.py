@@ -39,5 +39,5 @@ class CounterTest(TestCase):
         counter_name_to_delete = "example_counter"
         create_counter_result = create_counter(counter_name_to_delete)
         self.assertTrue(create_counter_result, "Failed to create a counter for testing.")  # if create counter fails
-        delete_result = delete_counter(counter_name_to_delete)      #delete counter
+        delete_result = self.client.delete('/counters/bar')      #delete counter
         self.assertEqual(delete_result.status_code, 204, "Expected a 204_NO_CONTENT status code.")
