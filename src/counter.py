@@ -27,8 +27,8 @@ def create_counter(name):
 def delete_counter_successful(name):
     """Delete a counter"""
     global COUNTERS
-    del COUNTERS[name]
     app.logger.info(f"Request to delete counter: {name}")
-    if name in COUNTERS:
+    if name in COUNTERS:   #check if exists before deleting
         return {"Message": f"Counter {name} does not exist"}, status.HTTP_409_CONFLICT
+    del COUNTERS[name]
     return "", status.HTTP_404_NOT_FOUND
