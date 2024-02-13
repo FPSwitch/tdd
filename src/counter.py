@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 COUNTERS = {}
 
+
 # We will use the app decorator and create a route called slash counters.
 # specify the variable in route <name>
 # let Flask know that the only methods that is allowed to called
@@ -22,11 +23,9 @@ def create_counter(name):
     return {name: COUNTERS[name]}, status.HTTP_201_CREATED
 
 
-@app.route('/counters/<name>', methods=['POST'])
 def setUp(self):
     self.client = app.test_client()
 
 
-@app.route('/counters/<name>', methods=['POST'])
 def delete_counter_successful(self):
     """Delete a counter"""
