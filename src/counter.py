@@ -29,6 +29,6 @@ def delete_counter_successful(name):
     app.logger.info(f"Request to delete counter: {name}")
     global COUNTERS
     if name in COUNTERS:
-        return {"Message": f"Counter {name} already exists"}, status.HTTP_409_CONFLICT
-    COUNTERS[name] = 0
-    return {name: COUNTERS[name]}, status.HTTP_201_CREATED
+        return {"Message": f"Counter {name} does not exist"}, status.HTTP_409_CONFLICT
+    COUNTERS[name] = del
+    return "", status.HTTP_404_NOT_FOUND
