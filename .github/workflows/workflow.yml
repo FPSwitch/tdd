@@ -19,6 +19,14 @@ jobs:                     #jobs to run latest runner
       - name: Checkout
         uses: actions/checkout@v4
       
+      - name: Cache dependencies # Use caching to store and retrieve Python dependencies. This can significantly speed up your workflow by avoiding unnecessary installs when the dependencies haven't changed.
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      
       - name: Install Dependencies              # updates and install dependencies
         run: 
           python -m pip install --upgrade pip | pip install -r requirements.txt
@@ -30,3 +38,6 @@ jobs:                     #jobs to run latest runner
       - name: Run unit tests with nose          #run nosetests
         run: 
           nosetests -v --with-spec --spec-color --with-coverage --cover-package=app
+
+
+
